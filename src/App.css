@@ -20,3 +20,11 @@
 .App-link {
   color: #09d3ac;
 }
+
+.input {
+  border: 2px solid black;
+}
+
+.input.error {
+  border: 2px solid red;
+}
