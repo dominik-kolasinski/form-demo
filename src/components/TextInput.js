@@ -1,15 +1,21 @@
 import * as React from "react";
+import ErrorMessage from "./ErrorMessage";
 
-function TextInput({ name, type, value, errorMessage, setValue }) {
+function TextInput({ name, value, errorMessage, handleOnChange }) {
   return (
-    <input
-      id={name}
-      name={name}
-      type={type}
-      value={value || ""}
-      onChange={setValue}
-      className={"input" + (errorMessage ? " error" : "")}
-    />
+    <>
+      <ErrorMessage message={errorMessage} />
+      <input
+        id={name}
+        name={name}
+        type="text"
+        value={value || ""}
+        placeholder={name}
+        onChange={handleOnChange}
+        onBlur={handleOnChange}
+        className={"input" + (errorMessage ? " error" : "")}
+      />
+    </>
   );
 }
 
