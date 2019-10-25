@@ -4,7 +4,8 @@ module.exports = {
   transformIgnorePatterns: [`<rootDir>/node_modules/`],
   transform: {
     "^.+\\.js$": "babel-jest",
-    ".+\\.(css|styl|less|sass|scss)$": "jest-transform-css"
+    ".+\\.(css|styl|less|sass|scss)$": "jest-transform-css",
+    "^.+\\.tsx?$": "ts-jest"
   },
   moduleNameMapper: {
     "\\.(css|scss)$": "identity-obj-proxy"

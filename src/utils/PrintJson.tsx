@@ -1,11 +1,15 @@
 import React from "react";
 
-const PrintJson = React.memo(({ data }) => (
+interface PrintJsonProps {
+  data: object;
+}
+
+const PrintJson: React.FC<PrintJsonProps> = React.memo(props => (
   <div className="json-output">
     <pre style={{ textAlign: "left" }}>
       field values:
       <br />
-      {JSON.stringify(data, null, 2)}
+      {JSON.stringify(props.data, null, 2)}
     </pre>
   </div>
 ));

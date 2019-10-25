@@ -5,6 +5,6 @@ import App from "./App";
 describe("<App /> rendering", () => {
   it("should render App", () => {
     let wrapper = shallow(<App />);
-    expect(wrapper.find(".App").length).toBe(1);
+    expect(wrapper.find(".app").length).toBe(1);
   });
 });

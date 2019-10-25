@@ -1,0 +1,65 @@
+{
+  "data": [
+    {
+      "name": "name",
+      "value": "",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "nickname",
+      "value": "",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "email",
+      "value": "",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "field",
+      "value": "",
+      "type": "select",
+      "conditionalChild": "position",
+      "options": [
+        { "it": "IT" },
+        { "product": "Product" },
+        { "content": "Content" }
+      ],
+      "required": true
+    },
+    {
+      "name": "position",
+      "value": "",
+      "type": "select",
+      "conditionalParent": "field",
+      "options": [
+        {
+          "it": [
+            { "frontEndDeveloper": "Front-end developer" },
+            { "backEndDeveloper": "Back-end developer" },
+            { "devOps": "Devops" },
+            { "webmaster": "Webmaster" }
+          ]
+        },
+
+        {
+          "product": [
+            { "productOwner": "Product Owner" },
+            { "uxDesigner": "UX Designer" },
+            { "uiDesigner": "UI Designer" }
+          ]
+        },
+        {
+          "content": [
+            { "jrCopywriter": "Junior Copywriter" },
+            { "srCopywriter": "Senior Copywriter" }
+          ]
+        }
+      ],
+      "required": true
+    }
+  ]
+}
