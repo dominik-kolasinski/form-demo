@@ -1,14 +1,15 @@
 import React from "react";
 import { withRouter } from "react-router";
 
-import { objectCast } from "../utils/objectCast";
-import useForm from "../hooks/useForm";
-import formDataJSON from "../config-data/formData.json";
+import { objectCast } from "../../utils/objectCast";
+import useForm from "../../hooks/useForm";
+import formDataJSON from "../../config-data/formData.json";
 
-import PrintJson from "../utils/PrintJson";
-import TextInput from "./TextInput";
-import SelectInput from "./SelectInput";
-import { useState, dispatch } from "../store/reducer";
+import PrintJson from "../../utils/PrintJson";
+import TextField from "../text-field/TextField";
+import SelectField from "../select-field/SelectField";
+import { useState, dispatch } from "../../store/reducer";
+import "./form.scss";
 
 const Form: React.FC = (props: any) => {
   // import your state schema from json file
@@ -93,7 +94,7 @@ const Form: React.FC = (props: any) => {
         {stateSchemaRaw.map(schemaItem => {
           if (schemaItem.type === "text") {
             return (
-              <TextInput
+              <TextField
                 key={schemaItem.name}
                 name={schemaItem.name}
                 value={objectCast(values)[schemaItem.name]}
@@ -104,7 +105,7 @@ const Form: React.FC = (props: any) => {
           }
           if (schemaItem.type === "select" && schemaItem.conditionalParent) {
             return (
-              <SelectInput
+              <SelectField
                 key={schemaItem.name}
                 name={schemaItem.name}
                 value={objectCast(values)[schemaItem.name]}
@@ -122,7 +123,7 @@ const Form: React.FC = (props: any) => {
           }
           if (schemaItem.type === "select" && schemaItem.conditionalChild) {
             return (
-              <SelectInput
+              <SelectField
                 key={schemaItem.name}
                 name={schemaItem.name}
                 value={objectCast(values)[schemaItem.name]}
@@ -136,7 +137,14 @@ const Form: React.FC = (props: any) => {
           }
           return null;
         })}
-        <input type="submit" name="submit" disabled={disable} />
+        <div className="form-submit-button-container">
+          <input
+            type="submit"
+            name="submit"
+            disabled={disable}
+            className="form-submit-button"
+          />
+        </div>
       </form>
       {<PrintJson data={values} />}
     </section>

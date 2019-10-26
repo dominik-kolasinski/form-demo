@@ -1,0 +1,23 @@
+@import "../../styles/variables.scss";
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem auto 2rem 2.6rem;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+
+  .result-field {
+    color: $muted-color;
+  }
+
+  .result-value {
+    color: $primary-color;
+    font-size: 1.8rem;
+    margin: 0.2rem 0 2rem;
+    word-break: break-all;
+  }
+}

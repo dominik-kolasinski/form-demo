@@ -14,13 +14,14 @@
   transform: translateZ(0);
   color: #fff;
   background-color: #1976d2;
-  height: 4.8rem;
-  min-height: 4.8rem;
+  height: 5.2rem;
+  min-height: 5.2rem;
   box-sizing: inherit;
   position: relative;
   align-items: center;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 3.2rem;
+  padding-right: 3.2rem;
+  cursor: default;
 
   & .title {
     font-size: 2rem;
@@ -38,10 +39,9 @@
   width: auto;
   display: flex;
   justify-content: center;
-  bottom: 1rem;
-  right: 1.4rem;
-  position: absolute;
-  border: solid 1px #a8a8a8;
+  margin-top: 2rem;
+  border: solid 1px #e3e3e3;
   height: auto;
   padding: 0.5rem 1.5rem;
+  background: #fff;
 }

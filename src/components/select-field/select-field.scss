@@ -1,0 +1,114 @@
+@import "../../styles/variables.scss";
+
+.select-field-container {
+  position: relative;
+  margin: 2rem 3rem 5rem;
+  width: $width;
+
+  &.error .select-field-input {
+    color: $error-color;
+  }
+}
+
+.select-field-input {
+  position: relative;
+  font-family: inherit;
+  background-color: transparent;
+  width: $width;
+  padding: 1rem 1rem 1rem 0;
+  font-size: 1.6rem;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  color: $muted-color;
+
+  &:valid {
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+  }
+
+  &:disabled {
+    color: $muted-color;
+  }
+}
+.select-field-container .select-field-input {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.select-field-container:after {
+  position: absolute;
+  top: 18px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: "";
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+}
+
+.select-field-label {
+  color: rgba(0, 0, 0, 0.26);
+  font-size: 1.2rem;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: -2rem;
+  transition: 0.2s ease all;
+}
+
+.select-field-input:focus ~ .select-field-label {
+  color: $primary-color;
+}
+
+.select-field-underline {
+  position: relative;
+  display: block;
+  width: $width;
+}
+
+.select-field-underline.error {
+  &:before,
+  &:after {
+    background: $error-color;
+  }
+}
+
+.select-field-underline:before,
+.select-field-underline:after {
+  content: "";
+  height: 1px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  color: $primary-color;
+  transition: 0.2s ease all;
+
+  &.error {
+    background: $error-color;
+  }
+}
+
+.select-field-input:focus ~ .select-field-underline:before,
+.select-field-input:focus ~ .select-field-underline:after {
+  width: 100%;
+}
+
+.select-field-highlight {
+  position: absolute;
+  height: 60%;
+  width: 10rem;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  color: $muted-color;
+}

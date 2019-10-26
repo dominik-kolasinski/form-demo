@@ -1,12 +1,14 @@
 import React from "react";
 import { withRouter } from "react-router";
 
-import Form from "../components/Form";
+import Form from "../components/form/Form";
 import "./pages.scss";
 
 const HomePage: React.FC = () => (
   <main className="p-home">
-    <Form />
+    <div className="paper p-home-content">
+      <Form />
+    </div>
   </main>
 );
 
