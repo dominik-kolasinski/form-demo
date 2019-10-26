@@ -1,4 +1,7 @@
+@import "./variables.scss";
+
 .paper {
+  margin: 4rem auto;
   font-size: 1.4rem;
   letter-spacing: 0.01071em;
   box-sizing: inherit;
@@ -8,18 +11,12 @@
   border-radius: 4px;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  padding: 24px 16px;
+  padding: 4.4rem 3.6rem;
 }
 
-.link-button {
-  //     -webkit-font-smoothing: antialiased;
-  // box-sizing: inherit;
+.u-link-button {
   font-size: 1.4rem;
-  // font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  // font-weight: 400;
-  // line-height: 1.43;
-  // letter-spacing: 0.01071em;
-  color: #1976d2;
+  color: $primary-color;
   text-decoration: none;
   text-transform: uppercase;
   border: 0;

@@ -1,0 +1,99 @@
+@import "../../styles/variables.scss";
+
+.text-field-container {
+  position: relative;
+  margin: 2rem 3rem 5rem;
+  color: $primary-color;
+
+  &.error {
+    color: $error-color;
+  }
+}
+
+.text-field-input {
+  background: none;
+  color: $muted-color;
+  font-size: 1.6rem;
+  padding: 1rem 0;
+  display: block;
+  width: $width;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid $muted-color;
+
+  &:focus {
+    outline: none;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  &:focus ~ .text-field-label,
+  &[value=""]:focus ~ .text-field-label,
+  &:focus:not([value=""]) ~ .text-field-label {
+    top: -1.4rem;
+    font-size: 1.2rem;
+    color: inherit;
+  }
+
+  &:not([value=""]) {
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  &:not([value=""]) ~ .text-field-label {
+    top: -1.4rem;
+    font-size: 1.2rem;
+    color: $muted-color;
+  }
+
+  &[value=""] ~ .text-field-label {
+    color: $muted-color;
+    font-size: 1.6rem;
+  }
+  &:focus ~ .text-field-underline:before {
+    width: $width;
+  }
+}
+
+.text-field-label {
+  color: $muted-color;
+  font-size: 1.4rem;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 1rem;
+  transition: $trans-time ease all;
+}
+
+.text-field-underline {
+  position: relative;
+  display: block;
+  width: $width;
+
+  &:before {
+    content: "";
+    height: 1px;
+    width: 0;
+    bottom: 0px;
+    position: absolute;
+    background: $primary-color;
+    transition: $trans-time ease all;
+    left: 0%;
+  }
+}
+
+.text-field-underline.error {
+  position: relative;
+  display: block;
+  width: $width;
+
+  &:before {
+    content: "";
+    height: 1px;
+    width: 0;
+    bottom: 0px;
+    position: absolute;
+    background: $error-color;
+    transition: $trans-time ease all;
+    left: 0%;
+  }
+}
