@@ -1,5 +1,5 @@
 module.exports = {
-  testMatch: ["<rootDir>/**/*.test.(js|jsx)"],
+  testMatch: ["<rootDir>/**/*.test.(js|jsx|ts|tsx)"],
   setupFiles: ["<rootDir>/test/setupTests.js"],
   transformIgnorePatterns: [`<rootDir>/node_modules/`],
   transform: {
