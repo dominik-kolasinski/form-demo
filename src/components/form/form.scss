@@ -1,4 +1,9 @@
 @import "../../styles/variables.scss";
+
+form {
+  position: relative;
+}
+
 .form-submit-button-container {
   width: 35rem;
   display: flex;

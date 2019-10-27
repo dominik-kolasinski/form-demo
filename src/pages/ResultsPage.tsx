@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import { useState, dispatch } from "../store/reducer";
-import ResultsList from "../components/ResultsList/ResultsList";
+import ResultsList from "../components/results-list/ResultsList";
 import "./pages.scss";
 import "../styles/common.scss";
 

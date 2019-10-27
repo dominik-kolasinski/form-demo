@@ -3,12 +3,14 @@ import { withRouter } from "react-router";
 
 import { objectCast } from "../../utils/objectCast";
 import useForm from "../../hooks/useForm";
+import { useState, dispatch } from "../../store/reducer";
 import formDataJSON from "../../config-data/formData.json";
 
-import PrintJson from "../../utils/PrintJson";
 import TextField from "../text-field/TextField";
 import SelectField from "../select-field/SelectField";
-import { useState, dispatch } from "../../store/reducer";
+import DatePicker from "../date-picker/DatePicker";
+import PrintJson from "../../utils/PrintJson";
+
 import "./form.scss";
 
 const Form: React.FC = (props: any) => {
@@ -90,7 +92,9 @@ const Form: React.FC = (props: any) => {
 
   return (
     <section>
-      <form onSubmit={handleOnSubmit}>
+      {/* <Calendar width="302px" /> */}
+      <form onSubmit={handleOnSubmit} autoComplete="off">
+        <DatePicker />
         {stateSchemaRaw.map(schemaItem => {
           if (schemaItem.type === "text") {
             return (

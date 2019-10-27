@@ -1,0 +1,74 @@
+.dp-container {
+  width: 252px;
+  border: 1px solid gray;
+  overflow: hidden;
+  cursor: default;
+  display: none;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+  background-color: #ecf3ff;
+  font: normal 10pt arial;
+  box-shadow: 5px 5px 8px #888888;
+}
+.dp-container .dp-header {
+  width: 100%;
+  border-bottom: 1px solid #cecece;
+  background-color: #bee296;
+  font-weight: bold;
+}
+.dp-container .dp-header div {
+  display: inline-block;
+  width: 25px;
+  border-right: 1px solid #cecece;
+  cursor: pointer;
+  text-align: center;
+  line-height: 24px;
+  text-shadow: 2px 2px 8px #cecece;
+}
+.dp-container .dp-header span {
+  display: inline-block;
+  width: 147px;
+  text-align: center;
+  border-right: 1px solid #cecece;
+}
+.dp-container .dp-header div:hover {
+  background-color: #83c837;
+}
+.dp-container .dp-weekdays {
+  border-bottom: 1px solid #cecece;
+  margin: 0px;
+  padding: 0px;
+  background-color: #fff1dd;
+}
+.dp-container .dp-weekdays li {
+  display: inline-block;
+  width: 35px;
+  text-align: center;
+  border-right: 1px solid #cecece;
+  line-height: 22px;
+}
+.dp-container .dp-days div {
+  display: inline-block;
+  width: 35px;
+  border-right: 1px solid #cecece;
+  border-bottom: 1px solid #cecece;
+  text-align: center;
+  cursor: pointer;
+  color: #0f52ee;
+  line-height: 22px;
+  font-weight: bold;
+}
+.dp-container .dp-days span {
+  display: inline-block;
+  width: 35px;
+  cursor: default;
+  border-right: 1px solid #cecece;
+  border-bottom: 1px solid #cecece;
+  line-height: 22px;
+}
+.dp-container .dp-days div:hover {
+  background-color: #f5f96a;
+  color: black;
+}
