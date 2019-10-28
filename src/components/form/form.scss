@@ -8,9 +8,14 @@ form {
 }
 
 .form-submit-button-container {
-  width: 32rem;
+  width: $width;
   display: flex;
   justify-content: flex-end;
+
+  @media screen and (max-width: 501px) {
+    width: 80%;
+    margin: 2rem 3rem 3rem;
+  }
 }
 
 .form-submit-button {

@@ -8,6 +8,11 @@
   &.error .select-field-input {
     color: $error-color;
   }
+
+  @media screen and (max-width: 501px) {
+    width: 80%;
+    margin: 2rem 3rem 3rem;
+  }
 }
 
 .select-field-input {
@@ -21,6 +26,10 @@
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   color: $muted-color;
+
+  @media screen and (max-width: 501px) {
+    width: 100%;
+  }
 
   &:valid {
     color: rgba(0, 0, 0, 0.87);

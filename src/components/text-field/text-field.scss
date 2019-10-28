@@ -8,6 +8,11 @@
   &.error {
     color: $error-color;
   }
+
+  @media screen and (max-width: 501px) {
+    width: 80%;
+    margin: 2rem 3rem 3rem;
+  }
 }
 
 .text-field-input {
@@ -20,6 +25,10 @@
   border: none;
   border-radius: 0;
   border-bottom: 1px solid $muted-color;
+
+  @media screen and (max-width: 501px) {
+    width: 100%;
+  }
 
   &:focus {
     outline: none;
@@ -50,6 +59,9 @@
   }
   &:focus ~ .text-field-underline:before {
     width: $width;
+    @media screen and (max-width: 501px) {
+      width: 100%;
+    }
   }
 }
 
@@ -69,6 +81,10 @@
   display: block;
   width: $width;
 
+  @media screen and (max-width: 501px) {
+    width: 100%;
+  }
+
   &:before {
     content: "";
     height: 1px;
@@ -85,6 +101,10 @@
   position: relative;
   display: block;
   width: $width;
+
+  @media screen and (max-width: 501px) {
+    width: 100%;
+  }
 
   &:before {
     content: "";

@@ -12,7 +12,18 @@
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   padding: 4.4rem 3.6rem;
+
+  @media screen and (max-width: 501px) {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+  }
 }
+
+// u prefix as utils
 
 .u-link-button {
   font-size: 1.4rem;
@@ -29,4 +40,42 @@
   border-radius: 0;
   vertical-align: middle;
   background-color: transparent;
+
+  @media screen and (max-width: 501px) {
+    margin-bottom: 4rem;
+  }
+}
+
+.u-close {
+  position: absolute;
+  right: 18%;
+  width: 2rem;
+  height: 2rem;
+  opacity: 0.3;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    background-color: $error-color;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    left: 1.5rem;
+    content: " ";
+    height: 2rem;
+    width: 2px;
+    background-color: #333;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
 }
