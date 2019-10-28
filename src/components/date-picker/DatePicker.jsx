@@ -1,156 +1,86 @@
 import React from "react";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState } from "react";
 import parse from "html-react-parser";
 import "./date-picker.scss";
 
-const DatePicker = () => {
+const DatePicker = props => {
   const getDaysInMonth = (month, year) => {
-    // Here January is 1 based
-    //Day 0 is the last day in the previous month
     return new Date(year, month, 0).getDate();
-    // Here January is 0 based
-    // return new Date(year, month+1, 0).getDate();
   };
-  const dpDays = useRef(null);
   const [date, setDate] = useState(new Date());
   const [showPicker, setShowPicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState("");
-
-  // const generatePicker = useCallback(() => {
-  //   return (
-  //     <div
-  //       className="dp-container"
-  //       style={{
-  //         display: showPicker ? "block" : "none"
-  //       }}
-  //     >
-  //       {generateTitle(date.toDateString().split(" "))}
-  //       {generateWeekdays()}
-
-  //       <div
-  //         className="dp-days"
-  //         onClick={e => dateClicked(e)}
-  //         ref={dpDays}
-  //         // dangerouslySetInnerHTML={{ __html: generateDays(new Date()) }}
-  //       >
-  //         {generateDays()}
-  //       </div>
-  //     </div>
-  //   );
-  // });
-
-  useEffect(() => {
-    // This is be executed when `loading` state changes
-  }, [date]);
-
-  // const date = new Date();
-
-  const newElement = (element, className, innerHTML) => {
-    const el = document.createElement(element);
-    if (className !== "") el.className = className;
-    if (typeof innerHTML != "undefined") el.innerHTML = innerHTML;
-    return el;
-  };
 
   const inputClicked = e => {
     setShowPicker(true);
   };
 
   const changeMonthYear = e => {
-    console.log(e.target.dataset.type);
     if (e.target.dataset.type === "prev-year")
       setDate(
         new Date(date.getFullYear() - 1, date.getMonth(), date.getDate())
       );
-    else if (e.target.dataset.type === "prev-month")
+    if (e.target.dataset.type === "prev-month")
       setDate(
         new Date(date.getFullYear(), date.getMonth() - 1, date.getDate())
       );
-    else if (e.target.dataset.type === "next-month")
-      //next month
+    if (e.target.dataset.type === "next-month")
       setDate(
         new Date(date.getFullYear(), date.getMonth() + 1, date.getDate())
       );
-    else if (e.target.dataset.type === "next-year")
-      //next year
+    if (e.target.dataset.type === "next-year")
       setDate(
         new Date(date.getFullYear() + 1, date.getMonth(), date.getDate())
       );
-
-    // this.showCalander();
-    generatePicker();
   };
 
   const generateTitle = dateString => {
     return (
       <div className="dp-header">
-        <div
-          data-type="prev-year"
-          className="dp-arrow-l"
-          onClick={e => changeMonthYear(e)}
-        >
-          &lt;&lt;
+        <div className="dp-arrow-bg">
+          <div
+            data-type="prev-year"
+            className="dp-arrow-l"
+            onClick={e => changeMonthYear(e)}
+          ></div>
         </div>
-        <div
-          data-type="prev-month"
-          className="dp-arrow-l"
-          onClick={e => changeMonthYear(e)}
-        >
-          &lt;
+        <div className="dp-arrow-bg">
+          <div
+            data-type="prev-month"
+            className="dp-arrow-l"
+            onClick={e => changeMonthYear(e)}
+          ></div>
         </div>
         <span>
-          {dateString[1]} - {dateString[3]}
+          {dateString[1]} {dateString[3]}
         </span>
-        <div
-          data-type="next-month"
-          className="dp-arrow-r"
-          onClick={e => changeMonthYear(e)}
-        >
-          &gt;
+        <div className="dp-arrow-bg">
+          <div
+            className="dp-arrow-r"
+            data-type="next-month"
+            onClick={e => changeMonthYear(e)}
+          ></div>
         </div>
-        <div
-          data-type="next-year"
-          className="dp-arrow-r"
-          onClick={e => changeMonthYear(e)}
-        >
-          &gt;&gt;
+        <div className="dp-arrow-bg">
+          <div
+            data-type="next-year"
+            className="dp-arrow-r"
+            onClick={e => changeMonthYear(e)}
+          ></div>
         </div>
       </div>
     );
   };
 
-  const generateWeekdays = () => {
-    return (
-      <ul className="dp-weekdays">
-        <li>Sun</li>
-        <li>Mon</li>
-        <li>Tue</li>
-        <li>Wed</li>
-        <li>Thu</li>
-        <li>Fri</li>
-        <li>Sat</li>
-      </ul>
-    );
-  };
-
   const generateDays = () => {
-    // const daysNumber = new Date(
-    //   date.getFullYear(),
-    //   date.getMonth() + 1,
-    //   0
-    // ).getDate();
-
     const daysNumber = getDaysInMonth(date.getMonth() + 1, date.getFullYear());
-    const daysOffset = date.getDate() - daysNumber;
-    // let temp = date.toDateString().split(" ")[1];
-    let temp;
     let daysEl = document.createElement("div");
 
-    for (var i = daysOffset + 2; i < daysNumber; i++) {
-      let newEl = i < 0 ? "span" : "div";
-      temp = newElement(newEl, "", "&nbsp;");
+    for (var i = 1; i <= daysNumber; i++) {
+      let temp = document.createElement("div");
+      temp.classList.add("dp-day");
+      temp.innerHTML = i;
       daysEl.appendChild(temp);
-      if (i >= 0) temp.innerHTML = i + 1;
     }
     return parse(daysEl.innerHTML);
   };
@@ -166,26 +96,21 @@ const DatePicker = () => {
         1}-${dateSelectedRaw.getFullYear()}`;
       setSelectedDate(dateSelectedFormatted);
       setShowPicker(false);
+      props.handleOnChange(e, "", dateSelectedFormatted);
     }
   };
 
   const generatePicker = () => {
     return (
       <div
-        className="dp-container"
+        className=" dp-container"
         style={{
           display: showPicker ? "block" : "none"
         }}
       >
         {generateTitle(date.toDateString().split(" "))}
-        {generateWeekdays()}
 
-        <div
-          className="dp-days"
-          onClick={e => dateClicked(e)}
-          ref={dpDays}
-          // dangerouslySetInnerHTML={{ __html: generateDays(new Date()) }}
-        >
+        <div className="dp-days" onClick={e => dateClicked(e)}>
           {generateDays()}
         </div>
       </div>
@@ -193,16 +118,27 @@ const DatePicker = () => {
   };
 
   return (
-    <>
+    <div className="dp-field-container">
       <input
+        className="dp-field"
         type="text"
-        name="date"
+        name="dp-field"
         onClick={e => inputClicked(e)}
         onChange={e => inputClicked(e)}
         value={selectedDate}
+        placeholder="Choose birthday date!"
       ></input>
+      {selectedDate && (
+        <span
+          className="dp-remove close"
+          onClick={e => {
+            setSelectedDate("");
+            props.handleOnChange(e, "", "");
+          }}
+        />
+      )}
       {showPicker && generatePicker()}
-    </>
+    </div>
   );
 };
 

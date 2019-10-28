@@ -71,7 +71,7 @@ const Form: React.FC = (props: any) => {
   // stateSchema property should be the same in validationStateSchema
   // in-order a validation to works in your input.
 
-  function onSubmitForm(state: object) {
+  function onSubmitForm() {
     const errorsCheck = Object.values(errors).filter(
       value => value === undefined
     );
@@ -92,9 +92,8 @@ const Form: React.FC = (props: any) => {
 
   return (
     <section>
-      {/* <Calendar width="302px" /> */}
       <form onSubmit={handleOnSubmit} autoComplete="off">
-        <DatePicker />
+        <DatePicker handleOnChange={handleOnChange} />
         {stateSchemaRaw.map(schemaItem => {
           if (schemaItem.type === "text") {
             return (
