@@ -130,7 +130,7 @@ const DatePicker = props => {
       ></input>
       {selectedDate && (
         <span
-          className="dp-remove close"
+          className="dp-remove u-close"
           onClick={e => {
             setSelectedDate("");
             props.handleOnChange(e, "", "");

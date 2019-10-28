@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 
 import { objectCast } from "../../utils/objectCast";
 import useForm from "../../hooks/useForm";
-import { useState, dispatch } from "../../store/reducer";
+import { dispatch } from "../../store/reducer";
 import formDataJSON from "../../config-data/formData.json";
 
 import TextField from "../text-field/TextField";
@@ -49,6 +49,7 @@ const Form: React.FC = (props: any) => {
     {}
   );
 
+  // custom stateValidatorSchema reflecting stateSchema provided in json file
   const stateValidatorSchema = stateSchemaRaw.reduce((obj, item) => {
     if (item.name === "email") {
       return Object.assign(obj, {
@@ -67,16 +68,13 @@ const Form: React.FC = (props: any) => {
     return Object.assign(obj, { [item.name]: { required: item.required } });
   }, {});
 
-  // Create your own validationStateSchema
-  // stateSchema property should be the same in validationStateSchema
-  // in-order a validation to works in your input.
-
   function onSubmitForm() {
     const errorsCheck = Object.values(errors).filter(
       value => value === undefined
     );
 
     if (!errorsCheck.length) {
+      localStorage.setItem("formDemoSubmittedResults", JSON.stringify(values));
       props.history.push({
         pathname: "/results"
       });

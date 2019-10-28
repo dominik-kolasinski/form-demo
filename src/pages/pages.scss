@@ -24,6 +24,10 @@
     color: rgba(0, 0, 0, 0.87);
     font-size: 2.4rem;
     line-height: 1.33;
+
+    @media screen and (max-width: 501px) {
+      padding: 3rem;
+    }
   }
 }
 
@@ -36,5 +40,8 @@
 
   &-message {
     font-size: 1.8rem;
+    @media screen and (max-width: 501px) {
+      padding: 3rem;
+    }
   }
 }

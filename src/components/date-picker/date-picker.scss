@@ -1,37 +1,14 @@
 @import "../../styles/variables.scss";
-
-.close {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  opacity: 0.3;
-}
-.close:hover {
-  opacity: 1;
-}
-.close:hover:after,
-.close:hover:before {
-  background-color: $error-color;
-}
-.close:before,
-.close:after {
-  position: absolute;
-  left: 15px;
-  content: " ";
-  height: 20px;
-  width: 2px;
-  background-color: #333;
-}
-.close:before {
-  transform: rotate(45deg);
-}
-.close:after {
-  transform: rotate(-45deg);
-}
+@import "../../styles/common.scss";
 
 .dp-field-container {
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 501px) {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .dp-field {
@@ -76,10 +53,20 @@
   margin: 0;
   flex-direction: column;
   position: absolute;
-  top: -2rem;
+  top: -6rem;
   left: calc(50% - 16rem);
   z-index: 999;
   cursor: default;
+
+  @media screen and (max-width: 501px) {
+    height: auto;
+    width: auto;
+    border-radius: 0;
+    margin-top: 2rem;
+    position: absolute;
+    left: 0;
+    top: -4%;
+  }
 }
 .dp-header {
   color: rgba(0, 0, 0, 0.87);
@@ -137,6 +124,10 @@
 .dp-days {
   display: flex;
   flex-wrap: wrap;
+
+  @media screen and (max-width: 501px) {
+    justify-content: center;
+  }
 }
 
 .dp-day {

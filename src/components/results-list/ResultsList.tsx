@@ -10,7 +10,8 @@ interface ResultsListProps {
 const ResultsList: React.FC<ResultsListProps> = props => {
   return (
     <ul>
-      {Object.keys(props.results).map(key => {
+      {// eslint-disable-next-line
+      Object.keys(props.results).map(key => {
         if (objectCast(props.results)[key]) {
           return (
             <li key={key}>
@@ -21,7 +22,6 @@ const ResultsList: React.FC<ResultsListProps> = props => {
             </li>
           );
         }
-        return;
       })}
     </ul>
   );
