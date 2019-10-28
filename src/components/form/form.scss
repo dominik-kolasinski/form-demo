@@ -1,6 +1,14 @@
 @import "../../styles/variables.scss";
+
+form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .form-submit-button-container {
-  width: 35rem;
+  width: 32rem;
   display: flex;
   justify-content: flex-end;
 }
