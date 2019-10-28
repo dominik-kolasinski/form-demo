@@ -3,19 +3,19 @@ import { useState } from "react";
 import parse from "html-react-parser";
 import "./date-picker.scss";
 
-const DatePicker = props => {
-  const getDaysInMonth = (month, year) => {
+const DatePicker = (props: any) => {
+  const getDaysInMonth = (month: number, year: number) => {
     return new Date(year, month, 0).getDate();
   };
   const [date, setDate] = useState(new Date());
   const [showPicker, setShowPicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState("");
 
-  const inputClicked = e => {
+  const inputClicked = () => {
     setShowPicker(true);
   };
 
-  const changeMonthYear = e => {
+  const changeMonthYear = (e: any) => {
     if (e.target.dataset.type === "prev-year")
       setDate(
         new Date(date.getFullYear() - 1, date.getMonth(), date.getDate())
@@ -34,7 +34,7 @@ const DatePicker = props => {
       );
   };
 
-  const generateTitle = dateString => {
+  const generateTitle = (dateString: string[]) => {
     return (
       <div className="dp-header">
         <div className="dp-arrow-bg">
@@ -79,13 +79,13 @@ const DatePicker = props => {
     for (var i = 1; i <= daysNumber; i++) {
       let temp = document.createElement("div");
       temp.classList.add("dp-day");
-      temp.innerHTML = i;
+      temp.innerHTML = i.toString();
       daysEl.appendChild(temp);
     }
     return parse(daysEl.innerHTML);
   };
 
-  const dateClicked = e => {
+  const dateClicked = (e: any) => {
     const value = parseInt(e.target.innerHTML);
     if (!isNaN(value)) {
       const dateSelectedRaw = new Date(
@@ -123,8 +123,8 @@ const DatePicker = props => {
         className="dp-field"
         type="text"
         name="dp-field"
-        onClick={e => inputClicked(e)}
-        onChange={e => inputClicked(e)}
+        onClick={() => inputClicked()}
+        onChange={() => inputClicked()}
         value={selectedDate}
         placeholder="Choose birthday date!"
       ></input>
