@@ -13,7 +13,7 @@
     "html-react-parser": "^0.9.1",
     "moment": "^2.24.0",
     "moment-range": "^4.0.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router": "^5.1.2",
